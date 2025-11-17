@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rickandmorty/business_logic/cubit/charachters_cubit.dart';
@@ -90,9 +91,15 @@ class _CharachtersScreenState extends State<CharachtersScreen> {
   }
 
   Widget _buildAppBarTitle() {
-    return Text(
-      "Charachters",
-      style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+    return AnimatedTextKit(
+      repeatForever: true,
+
+      animatedTexts: [
+        ScaleAnimatedText(
+          'Characters',
+          textStyle: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+        ),
+      ],
     );
   }
 

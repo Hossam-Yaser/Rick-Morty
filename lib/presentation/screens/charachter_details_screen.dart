@@ -64,7 +64,7 @@ class CharachterDetailsScreen extends StatelessWidget {
                       "Origin : ",
                       character.origin!.name ?? "Unknown",
                     ),
-                    buildDivider(300),
+                    buildDivider(310),
                     characterInfo(
                       "Location : ",
                       character.location!.name ?? "UnLocated",
@@ -80,6 +80,7 @@ class CharachterDetailsScreen extends StatelessWidget {
                           .toList()
                           .toString(),
                     ),
+
                     buildDivider(300),
                     SizedBox(height: 20),
                   ],
