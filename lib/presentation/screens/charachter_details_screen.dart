@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rickandmorty/constants/appcolors.dart';
-import 'package:rickandmorty/data/models/charachters_model.dart';
-import 'package:rickandmorty/presentation/widgets/charachter_info.dart';
+import '../../constants/appcolors.dart';
+import '../../data/models/charachters_model.dart';
+import '../widgets/charachter_info.dart';
 
 class CharachterDetailsScreen extends StatelessWidget {
   final CharachterModel character;

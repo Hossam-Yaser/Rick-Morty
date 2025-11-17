@@ -1,5 +1,5 @@
-import 'package:rickandmorty/data/api/charachters_api.dart';
-import 'package:rickandmorty/data/models/charachters_model.dart';
+import '../api/charachters_api.dart';
+import '../models/charachters_model.dart';
 
 class CharachtersRepository {
   final CharachtersApi charachtersApi;

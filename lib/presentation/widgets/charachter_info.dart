@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rickandmorty/constants/appcolors.dart';
+import '../../constants/appcolors.dart';
 
 Widget characterInfo(String title, String value) {
   return RichText(

@@ -1,10 +1,12 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rickandmorty/business_logic/cubit/charachters_cubit.dart';
-import 'package:rickandmorty/constants/appcolors.dart';
-import 'package:rickandmorty/data/models/charachters_model.dart';
-import 'package:rickandmorty/presentation/widgets/charachter_item.dart';
+import 'package:flutter_offline/flutter_offline.dart';
+import '../../business_logic/cubit/charachters_cubit.dart';
+import '../../constants/appcolors.dart';
+import '../../data/models/charachters_model.dart';
+import '../widgets/buildnointernet_widget.dart';
+import '../widgets/charachter_item.dart';
 
 class CharachtersScreen extends StatefulWidget {
   const CharachtersScreen({super.key});
@@ -97,7 +99,11 @@ class _CharachtersScreenState extends State<CharachtersScreen> {
       animatedTexts: [
         ScaleAnimatedText(
           'Characters',
-          textStyle: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+          textStyle: TextStyle(
+            fontSize: 32,
+            fontWeight: FontWeight.bold,
+            color: Appcolors.mainGrey,
+          ),
         ),
       ],
     );
@@ -123,17 +129,36 @@ class _CharachtersScreenState extends State<CharachtersScreen> {
         shadowColor: Appcolors.saga,
         elevation: 1,
       ),
-      body: BlocBuilder<CharachtersCubit, CharachtersState>(
-        builder: (context, state) {
-          if (state is CharachtersLoaded) {
-            allCharacters = state.charachters;
-            return buildCharactersGrid();
-          } else {
-            return Center(
-              child: CircularProgressIndicator(color: Appcolors.darkSaga),
-            );
-          }
-        },
+      body: OfflineBuilder(
+        connectivityBuilder:
+            (
+              BuildContext context,
+              List<ConnectivityResult> connectivity,
+              Widget child,
+            ) {
+              final bool connected = !connectivity.contains(
+                ConnectivityResult.none,
+              );
+              if (connected) {
+                return BlocBuilder<CharachtersCubit, CharachtersState>(
+                  builder: (context, state) {
+                    if (state is CharachtersLoaded) {
+                      allCharacters = state.charachters;
+                      return buildCharactersGrid();
+                    } else {
+                      return Center(
+                        child: CircularProgressIndicator(
+                          color: Appcolors.darkSaga,
+                        ),
+                      );
+                    }
+                  },
+                );
+              } else {
+                return builNoInternet();
+              }
+            },
+        child: Center(child: CircularProgressIndicator()),
       ),
     );
   }
@@ -145,7 +170,7 @@ class _CharachtersScreenState extends State<CharachtersScreen> {
         child: GridView.builder(
           shrinkWrap: true,
           physics: ClampingScrollPhysics(),
-          itemCount: _isSearching
+          itemCount: _searchTextController.text.isNotEmpty
               ? filteredCharacters.length
               : allCharacters.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -156,7 +181,7 @@ class _CharachtersScreenState extends State<CharachtersScreen> {
           ),
           itemBuilder: (_, index) {
             return CharachterItem(
-              charachter: _isSearching
+              charachter: _searchTextController.text.isNotEmpty
                   ? filteredCharacters[index]
                   : allCharacters[index],
             );

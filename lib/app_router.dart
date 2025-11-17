@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rickandmorty/business_logic/cubit/charachters_cubit.dart';
-import 'package:rickandmorty/constants/strings.dart';
-import 'package:rickandmorty/data/api/charachters_api.dart';
-import 'package:rickandmorty/data/models/charachters_model.dart';
-import 'package:rickandmorty/data/repositories/charachters_repository.dart';
-import 'package:rickandmorty/presentation/screens/charachter_details_screen.dart';
-import 'package:rickandmorty/presentation/screens/charachters_screen.dart';
+import 'business_logic/cubit/charachters_cubit.dart';
+import 'constants/strings.dart';
+import 'data/api/charachters_api.dart';
+import 'data/models/charachters_model.dart';
+import 'data/repositories/charachters_repository.dart';
+import 'presentation/screens/charachter_details_screen.dart';
+import 'presentation/screens/charachters_screen.dart';
 
 class AppRouter {
   late CharachtersRepository charachtersRepository;
