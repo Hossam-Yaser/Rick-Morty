@@ -7,7 +7,7 @@ A beautiful, feature-rich Flutter application that brings the Rick and Morty uni
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 <div align="center">
-  <img src="demo/demo.gif" alt="App Demo" width="300"/>
+  <img src="demo/gif/demo_hd.gif" alt="App Demo" width="640"/>
 </div>
 
 ## 📱 Project Overview
@@ -254,25 +254,25 @@ The app gracefully handles network connectivity issues:
   <table>
     <tr>
       <td align="center">
-        <img src="demo/screenshots/splash.png" alt="Splash Screen" width="250"/><br/>
+        <img src="demo/screenshots/SplashScreen.png" alt="Splash Screen" width="250"/><br/>
         <b>Splash Screen</b>
       </td>
       <td align="center">
-        <img src="demo/screenshots/home.png" alt="Home Screen" width="250"/><br/>
+        <img src="demo/screenshots/characterScreen.png" alt="Home Screen" width="250"/><br/>
         <b>Characters List</b>
       </td>
       <td align="center">
-        <img src="demo/screenshots/search.png" alt="Search" width="250"/><br/>
+        <img src="demo/screenshots/searchScreen.png" alt="Search" width="250"/><br/>
         <b>Search Feature</b>
       </td>
     </tr>
     <tr>
       <td align="center">
-        <img src="demo/screenshots/details.png" alt="Details" width="250"/><br/>
+        <img src="demo/screenshots/detailedScren.png" alt="Details" width="250"/><br/>
         <b>Character Details</b>
       </td>
       <td align="center">
-        <img src="demo/demo.gif" alt="Demo" width="250"/><br/>
+        <img src="demo/gif/demo_hd.gif" alt="Demo" width="250"/><br/>
         <b>Live Demo</b>
       </td>
     </tr>
